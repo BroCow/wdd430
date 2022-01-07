@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.content{
+    margin: 5vw;
+}
+h1{
+    background-color: #add8e6;
+    color: darkblue;
+    padding: 2vw;
+    position: fixed;
+    top: 0vw;
+    width: 100vw;
+}
