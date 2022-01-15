@@ -1,6 +1,48 @@
 <!-- <p>servers works!</p> -->
 
 
+<!-- Passing and Using Data with Event Binding -->
+<label for="">Server Name</label>
+<!-- $event captures the data present when event happens and passes it -->
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)">  -->
+
+<!-- TWO-WAY DATA BINDING -->
+<input type="text" class="form-control" [(ngModel)]="serverName"> 
+
+<p>{{ serverName }}</p>
+
+
+<!-- COMBINING ALL FORMS OF DATA BINDING -->
+<p></p>
+
+
+<!-- PROPERTY BINDING -->
+<!-- Putting [] around 'disabled' property binds it allowing the use of '=' our method. This allows for the DOM to update dynamically since
+the method uses timeOut...after two seconds the button automatically becomes enabled. -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+
+
+<!-- PROPERTY BINDING vs STRING INTERPOLATION -->
+<p [innerText] = "allowNewServer"></p>
+
+<!-- EVENT BINDING -->
+<!-- Triggered by (click) event added to button - calls onCreateServer() method in typescript -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+<!-- ngIF TO OUTPUT DATA CONDITIONALLY -->
+<!-- The paragraph below is not hidden - it just isn't there unless serverCreated is true -->
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+<!-- Below is an 'else' -->
+<!-- <ng-template #noServer>
+    <p>No server was created!</p> 
+</ng-template> -->
+<p *ngIf="!serverCreated">Server was not created!</p>
+
+ 
+
 <!-- Use twice since we can reuse selectors -->
-<app-server></app-server>
-<app-server></app-server>
+<!-- <app-server></app-server>
+<app-server></app-server> -->
+
+<!-- ngFor - use to dynamically create list of servers in array -->
+<app-server *ngFor="let server of servers"></app-server>

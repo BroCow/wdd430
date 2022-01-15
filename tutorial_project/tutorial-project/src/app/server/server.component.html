@@ -1,1 +1,11 @@
-<p>The server component</p>
+<!-- String Interpolation - curly braces must return a string (no multi-line code like if's) -->
+
+<!-- Use ngStyle directive to conditionally change style
+Bind directive using []
+ngStyle expects object with name-value
+using method to change color on condition.
+ngClass expects object with key-value using class name and condition to be dynamically added -->
+<p 
+[ngStyle]="{backgroundColor: getColor()}"
+[ngClass]="{online: serverStatus === 'online'}"
+>{{ 'Server' }} with ID {{ serverID }} is {{ serverStatus }}</p>

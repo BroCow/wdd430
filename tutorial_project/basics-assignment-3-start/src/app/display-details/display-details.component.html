@@ -1,0 +1,19 @@
+
+
+<button class="btn btn-primary" (click)="onClick()">Display Details</button>
+
+<p *ngIf="displayP">This is the secret paragraph that is toggled by the button.</p>
+<p *ngFor="let clicks of btnClicks"></p>
+
+
+<!-- <div *ngFor="let logItem of btnClicks"
+[ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+[ngClass]="{'white-text': logItem >= 5}" -->
+
+<div 
+*ngFor="let logItem of clickStamp; let i = index"
+[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+[ngClass]="{'white-text': i >= 4}"
+
+
+>{{ logItem }}</div>
